@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="resources/styles.css">
+    <title>What to Watch</title>
+</head>
+<body>
+
+    <div id="container">
+        <h1><span>W</span>hat to <span>W</span>atch</h1>
+         <form id="showForm">
+             <div class="formOp">
+                 <label for="title">Title</label>
+                 <input type="text" id="title">
+             </div>
+            <div class="formOp">
+                <label for="genre">Genre</label>
+                <input type="text" id="genre">
+            </div>
+            <input type="submit" value="Add" id="submit">
+         </form>
+
+         <table>
+             <thead>
+                 <tr>
+                     <th>Title</th>
+                     <th>Genre</th>
+                     <th></th>
+                 </tr>
+             </thead>
+             <tbody id="showList">
+
+             </tbody>
+         </table>
+
+    </div>
+
+    <script src="resources/app.js"></script>
+</body>
+</html>

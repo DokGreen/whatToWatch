@@ -1,0 +1,48 @@
+@mixin Flex($justify) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+    flex-direction: column;
+}
+
+$mainCol: red;
+
+#container {
+    @include Flex(center);
+    width: 80vw;
+    margin: 0 auto;
+    font-family: Helvetica, sans-serif, Arial;
+}
+
+h1 {
+    span {
+        color:$mainCol;
+    }
+}
+
+#showForm {
+    @include Flex(space-around);
+    height: 30vw;
+    width: 80%;
+    font-size: 3vw;
+
+    label {
+        width: 10vw;
+        display: inline-block;
+        color: $mainCol;
+    }
+
+    input {
+        height: 4vw;
+        width: 30vw;
+        font-size: 2.5vw;
+    }
+}
+
+#submit {
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 25vw;
+    background-color: $mainCol;
+}
