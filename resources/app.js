@@ -1,3 +1,5 @@
+const alert = document.querySelector('#alert');
+
 //book class
 class Show {
     constructor(title, genre) {
@@ -65,6 +67,17 @@ document.querySelector("#showForm").addEventListener('submit', e => {
         //change this to a DOM el
         alert("complete all fields");
     } else {
+
+        //remove the fade class
+
+        //alert show added
+        alert.innerHTML = 'Show added';
+        alert.style.color = "#006400";
+        alert.style.backgroundColor = "#1FC600";
+        setTimeout(() => {
+            alert.classList.toggle('alertFade');
+        }, 3000);
+
         //create an new instance of show
         const show = new Show(title, genre);
 
@@ -80,4 +93,12 @@ document.querySelector("#showForm").addEventListener('submit', e => {
 //deleting shows
 document.querySelector("#showList").addEventListener('click', e => {
     UI.deleteShow(e.target);
+
+    //const title = 
+
+    //alert show removed
+    alert.innerHTML = `Show removed`;
+    alert.style.color = "#BF0000";
+    alert.style.backgroundColor = "#FF0000";
+
 })

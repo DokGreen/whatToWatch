@@ -16,8 +16,24 @@ $mainCol: red;
 
 h1 {
     span {
-        color:$mainCol;
+        padding: 0.5vw;
+        margin-right: 0.5vw;
+        border-radius: 1vw;
+        color:#fff;
+        background-color: $mainCol;
     }
+}
+
+#alert {
+    height: 4vw;
+    width: 30vw;
+    line-height: 4vw;
+    text-align: center;
+}
+
+.alertFade {
+    opacity: 0;
+    transition: opacity linear 1000ms;
 }
 
 #showForm {
