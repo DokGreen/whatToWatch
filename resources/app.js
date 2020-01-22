@@ -1,4 +1,10 @@
-const alert = document.querySelector('#alert');
+const msg = document.querySelector('#alert');
+
+function updateMsg(t,c,bc){
+    msg.innerHTML = t;
+    msg.style.color = c;
+    msg.style.backgroundColor = bc;
+}
 
 //book class
 class Show {
@@ -67,16 +73,10 @@ document.querySelector("#showForm").addEventListener('submit', e => {
         //change this to a DOM el
         alert("complete all fields");
     } else {
-
-        //remove the fade class
-
-        //alert show added
-        alert.innerHTML = 'Show added';
-        alert.style.color = "#006400";
-        alert.style.backgroundColor = "#1FC600";
+        updateMsg('Show added', '#006400','#1FC600');
         setTimeout(() => {
-            alert.classList.toggle('alertFade');
-        }, 3000);
+            updateMsg('', '','');
+        }, 2000);
 
         //create an new instance of show
         const show = new Show(title, genre);
@@ -97,8 +97,8 @@ document.querySelector("#showList").addEventListener('click', e => {
     //const title = 
 
     //alert show removed
-    alert.innerHTML = `Show removed`;
-    alert.style.color = "#BF0000";
-    alert.style.backgroundColor = "#FF0000";
-
+    updateMsg('Show removed', '#BF0000','#FF0000');
+    setTimeout(() => {
+        updateMsg('', '','');
+    }, 2000);
 })
