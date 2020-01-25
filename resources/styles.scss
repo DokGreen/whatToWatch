@@ -102,3 +102,69 @@ table {
     color: $detCol;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 480px) {
+    
+    #container {
+        @include Flex(flex-start);
+    }
+
+    h1 {
+        margin-top: 12vw;
+        font-size: 12vw;
+        color: $mainCol;
+    }
+    
+    #alert {
+        height: 10vw;
+        width: 60vw;
+        margin: 2vw 0;
+        line-height: 10vw;
+        font-size: 6vw;
+    }
+    
+    
+    #showForm {
+        @include Flex(space-around);
+        height: 50vw;
+        font-size: 8vw;
+    
+        label {
+            width: 25vw;
+            display: inline-block;
+            color: $mainCol;
+        }
+    
+        input {
+            height: 8vw;
+            width: 90vw;
+            font-size: 7vw;
+        }
+    }
+    
+    #submit {
+        margin-top: 10vw;
+        border-radius: 1.5vw;
+    }
+    
+    table {
+        width: 80vw;
+        margin-top: 10vw;
+        font-size: 7vw;
+    
+        thead {
+            font-size: 8vw;
+            background-color: $detCol;
+        }
+    
+        tbody {
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+        }
+    }
+    
+    .delete {
+        color: $detCol;
+        cursor: pointer;
+    }   
+}
