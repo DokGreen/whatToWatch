@@ -17,11 +17,12 @@ class Show {
 //ui class
 class UI {
     static displayShows() {
-        //insert local storage code here
+        const shows = Store.getMovies();
 
-        //const shows = StoredShows;
+        shows.forEach(show => {
+            UI.addShowToList(show);
+        })
 
-        //shows.forEach(show => UI.addShowToList(show));
     }
 
     static addShowToList(show) {
@@ -53,7 +54,36 @@ class UI {
     }
 }
 //store class
+class Store {
+    static getMovies() {
+        let shows;
+        if(localStorage.getItem('shows') === null) {
+            shows = [];
+        } else {
+            shows = JSON.parse(localStorage.getItem('shows'));
+        }
+        return shows;
+    }
 
+    static addMovie(show) {
+        const shows = Store.getMovies();
+        shows.push(show)
+
+        localStorage.setItem('shows', JSON.stringify(shows));
+    }
+
+    static removeMovie(title) {
+        const shows = Store.getMovies();
+
+        shows.forEach((show, index) => {
+            if(show.title === title) {
+                shows.splice(index, 1);
+            }
+        });
+
+        localStorage.setItem('shows', JSON.stringify(shows));
+    }
+}
 
 
 //Display books once the page is loaded
@@ -80,11 +110,12 @@ document.querySelector("#showForm").addEventListener('submit', e => {
 
         //create an new instance of show
         const show = new Show(title, genre);
-
         //console.log(show);
 
         //add show to form
         UI.addShowToList(show);
+
+        Store.addMovie(show);
         //clear form after submission
         UI.clearFields();
     }
@@ -92,9 +123,10 @@ document.querySelector("#showForm").addEventListener('submit', e => {
 
 //deleting shows
 document.querySelector("#showList").addEventListener('click', e => {
+    console.log(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
     UI.deleteShow(e.target);
 
-    //const title = 
+    Store.removeMovie(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
 
     //alert show removed
     updateMsg('Show removed', '#BF0000','#FF0000');
