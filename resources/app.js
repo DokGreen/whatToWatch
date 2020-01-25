@@ -33,7 +33,7 @@ class UI {
         row.innerHTML = `
             <td>${show.title}</td>
             <td>${show.genre}</td>
-            <td><a href="#" class="delete">X</a></td>
+            <td><a class="delete">X</a></td>
         `;
 
         //add newly create row to book list

@@ -1,3 +1,4 @@
+//mixins----------------------------
 @mixin Flex($justify) {
     display: flex;
     align-items: center;
@@ -5,22 +6,36 @@
     flex-direction: column;
 }
 
-$mainCol: red;
+//variables------------------------------
+$mainCol: #fff;
+$detCol: red;
+//classess & ids--------------------------------------
+
+//quick reset
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
 #container {
     @include Flex(center);
-    width: 80vw;
+    width: 100vw;
+    height: 90vw;
     margin: 0 auto;
     font-family: Helvetica, sans-serif, Arial;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('media/poster.jpg') no-repeat center ;
+    background-size: cover;
 }
 
 h1 {
+    font-size: 6vw;;
+    color: $mainCol;
+
     span {
         padding: 0.5vw;
         margin-right: 0.5vw;
-        border-radius: 1vw;
-        color:#fff;
-        background-color: $mainCol;
+        border-radius: 0.5vw;
+        background-color: $detCol;
     }
 }
 
@@ -56,9 +71,32 @@ h1 {
 }
 
 #submit {
-    color: #fff;
+    color: $mainCol;
     font-weight: bold;
     border: none;
-    border-radius: 25vw;
-    background-color: $mainCol;
+    border-radius: 1vw;
+    background-color: $detCol;
+}
+
+table {
+    width: 50vw;
+    padding: 10vw;
+    font-size: 3vw;;
+    color: $mainCol;
+    border-collapse: collapse;
+
+    thead {
+        font-size: 3.5vw;
+        background-color: $detCol;
+    }
+
+    tbody {
+        text-align: center;
+        background-color: rgba(0,0,0,0.5);
+    }
+}
+
+.delete {
+    color: $detCol;
+    cursor: pointer;
 }
